@@ -1,5 +1,8 @@
 # LIBEVENT Configuration Environment
 
+[![Debian 12](https://github.com/jeonghanlee/libevent-env/actions/workflows/debian12.yml/badge.svg)](https://github.com/jeonghanlee/libevent-env/actions/workflows/debian12.yml)
+[![Rocky9](https://github.com/jeonghanlee/libevent-env/actions/workflows/rocky9.yml/badge.svg)](https://github.com/jeonghanlee/libevent-env/actions/workflows/rocky9.yml)
+
 * The source codes are located in <https://github.com/libevent/libevent>
 * Required packages (Debian and its variants) as follows
 ```bash

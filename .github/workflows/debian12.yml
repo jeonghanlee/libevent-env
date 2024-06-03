@@ -18,7 +18,7 @@ jobs:
       - name: Install required packages
         run: |
           apt update -y
-          apt install -y make gcc g++ libusb-1.0-0-dev autoconf autotools-dev git libtool which
+          apt install -y make gcc g++ libusb-1.0-0-dev autoconf autotools-dev git libtool which pkg-config
       - name: Installation
         run: |
           make init
