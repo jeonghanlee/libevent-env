@@ -39,3 +39,11 @@ make clean
 make distclean
 ```
 
+## ALS-U EPICS environment
+
+We want to hold the libevent headers and libraries within a specific location due to `pvxs` dependency.
+
+```bash
+$ echo "INSTALL_LOCATION=${EPICS_BASE}/../bundle/usr" > configure/CONFIG_SITE.local
+$ make conf T_A=${EPICS_BASE_ARCH}
+```

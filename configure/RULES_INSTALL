@@ -1,5 +1,7 @@
 PHONY: install uninstall src_install src_uninstall src_clean
 
+LIBEVENT_PATH = $(INSTALL_LOCATION)/$(T_A)
+
 install: src_install
 
 uninstall: src_uninstall
@@ -9,15 +11,15 @@ clean: src_clean
 ## Copy the site specific files into sources
 ifeq ($(UNAME_S),Darwin)
 conf:
-	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(INSTALL_LOCATION)" --disable-openssl --disable-mbedtls --disable-libevent-regress --disable-samples --disable-doxygen-html
+	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(LIBEVENT_PATH)" --disable-openssl --disable-mbedtls --disable-libevent-regress --disable-samples --disable-doxygen-html
 endif
 
 ifeq ($(UNAME_S),Linux)
 conf:
-	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(INSTALL_LOCATION)" --disable-openssl --disable-mbedtls --disable-libevent-regress --disable-samples --disable-doxygen-html
+	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(LIBEVENT_PATH)" --disable-openssl --disable-mbedtls --disable-libevent-regress --disable-samples --disable-doxygen-html
 
 debugconf:
-	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(INSTALL_LOCATION)" --enable-debug --disable-openssl --disable-mbedtls --disable-libevent-regress --disable-samples --disable-doxygen-html
+	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(LIBEVENT_PATH)" --enable-debug --disable-openssl --disable-mbedtls --disable-libevent-regress --disable-samples --disable-doxygen-html
 endif
 
 
