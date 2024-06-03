@@ -9,15 +9,15 @@ clean: src_clean
 ## Copy the site specific files into sources
 ifeq ($(UNAME_S),Darwin)
 conf:
-	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(INSTALL_LOCATION)"
+	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(INSTALL_LOCATION)" --disable-openssl --disable-mbedtls --disable-libevent-regress --disable-samples --disable-doxygen-html
 endif
 
 ifeq ($(UNAME_S),Linux)
 conf:
-	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(INSTALL_LOCATION)"
+	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(INSTALL_LOCATION)" --disable-openssl --disable-mbedtls --disable-libevent-regress --disable-samples --disable-doxygen-html
 
 debugconf:
-	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(INSTALL_LOCATION)" --enable-debug
+	cd $(SRC_PATH) && autoreconf -i -v -f  && ./configure --prefix="$(INSTALL_LOCATION)" --enable-debug --disable-openssl --disable-mbedtls --disable-libevent-regress --disable-samples --disable-doxygen-html
 endif
 
 
