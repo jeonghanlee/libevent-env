@@ -1,0 +1,31 @@
+name: Debian 12
+
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+  pull_request:
+    branches: [master]
+jobs:
+  Debian12:
+    runs-on: ubuntu-latest
+    container: debian:bookworm-slim
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Install required packages
+        run: |
+          apt update -y
+          apt install -y make gcc g++ libusb-1.0-0-dev autoconf autotools-dev git libtool which
+      - name: Installation
+        run: |
+          make init
+          make conf
+          make build
+          make install
+      - name: Environment Check
+        run: |
+          make vars
+          make exist

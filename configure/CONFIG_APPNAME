@@ -1,0 +1,10 @@
+
+APPNAME_USERID:=$(APPNAME)
+APPNAME_GROUPID:=$(APPNAME_USERID)
+
+
+
+# These allow developers to override the variable
+-include $(TOP)/../CONFIG_APPNAME.local
+-include $(TOP)/configure/CONFIG_APPNAME.local
+
